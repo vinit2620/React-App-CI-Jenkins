@@ -36,4 +36,18 @@ jobs:
               uses: actions/upload-artifact@v4
               with:
                 name: react-build
-                path: dist/
+                path: dist
+
+             # Send an email notification
+            - name: Send Email Notification
+              if: success()
+              uses: betterfor/action-send-mail@main
+              with:
+                server_address: smtp.gmail.com
+                server_port: 465
+                username: ${{ secrets.EMAIL_USERNAME }}
+                password: ${{ secrets.EMAIL_PASSWORD }}
+                subject: "Build Successful: React App CI"
+                to: tharaprasadbv@gmail.com
+                from: ${{ secrets.EMAIL_USERNAME }}
+                body: Build job of ${{ github.repository }} completed successfully.
