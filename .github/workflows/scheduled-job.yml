@@ -48,6 +48,6 @@ jobs:
                 username: ${{ secrets.EMAIL_USERNAME }}
                 password: ${{ secrets.EMAIL_PASSWORD }}
                 subject: "Build Successful: React App CI"
-                to: tharaprasadbv@gmail.com
+                to: vinitranjan@gmail.com
                 from: ${{ secrets.EMAIL_USERNAME }}
                 body: Build job of ${{ github.repository }} completed successfully.
